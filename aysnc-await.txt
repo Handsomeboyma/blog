@@ -1,0 +1,10 @@
+##### 一、async和await的基础使用
+
+async/awiat的使用规则:
+
+- async 表示这是一个async函数， await只能用在async函数里面，不能单独使用
+- async 返回的是一个Promise对象，await就是等待这个promise的返回结果后，再继续执行
+- await 等待的是一个Promise对象，后面必须跟一个Promise对象，但是不必写then()，直接就可以得到返回值
+
+
+

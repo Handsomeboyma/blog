@@ -1,0 +1,97 @@
+### windows常用命令
+
+1 在文件夹空白处按住Shift，然后右键弹出快捷菜单，可以看到“在此处打开命令行窗口”
+
+#####  1.获取帮助
+
+command /? // 查看command命令帮助说明
+
+#####  2.文件/目录
+
+cd  切换目录
+
+例：cd  // 显示当前目录
+
+例：cd ..  // 进入父目录
+
+例：cd /d d:  // 进入上次d盘所在的目录（或在直接输入：d:）
+
+例：cd /d d:\  // 进入d盘根目录
+
+例：cd d: // 显示上次d盘所在的目录
+
+例：cd /d d:\src // 进入d:\src目录
+
+例：cd prj\src\view // 进入当前目录下的prj\src\view文件夹
+
+pushd  popd 使用栈来维护当前目录
+
+md d:\mp3 // 在D:\建立mp3文件夹
+md d:\mp4 // 在D:\建立mp4文件夹
+cd /d d:\mp4 // 更改当前目录为d:\mp4
+pushd c:\mp3 // 将当前目录d:\mp4入栈，并切换当前目录为c:\mp3
+popd // 将刚才保存的d:\mp4弹栈，并设置为当前目录
+
+##### 3.dir 显示目录中的内容
+
+例：dir  // 显示当前目录中的子文件夹与文件
+
+例：dir /b // 只显示当前目录中的子文件夹与文件的文件名
+
+例：dir /p // 分页显示当前目录中的子文件夹与文件
+
+例：dir /ad // 显示当前目录中的子文件夹
+
+例：dir /a-d // 显示当前目录中的文件
+
+例：dir c:\test  // 显示c:\test目录中的内容
+
+例：dir keys.txt // 显示当前目录中keys.txt的信息
+
+例：dir /S  // 递归显示当前目录中的内容
+
+例：dir key* // 显示当前目录下以key开头的文件和文件夹的信息
+
+例：dir /AH /OS // 只显示当前目录中隐藏的文件和目录，并按照文件大小从小到大排序
+
+##### 4.tree 显示目录结构
+
+例：tree d:\myfiles
+
+##### 5.ren 文件或目录重命名 
+
+例：ren rec.txt rec.ini // 将当前目录下的rec.txt文件重命名为rec.ini
+
+例：ren c:\test test_01 // 将c盘下的test文件夹重命名为test_01
+
+例：ren Logs.txt Logs-%date:~0,4%%date:~5,2%%date:~8,2%_%time:~0,2%%time:~3,2%.txt // 将当前目录下的Logs.txt文件重命名为Logs-20150114_2135.txt或Logs-20150114_ 812.txt（注意：小时只有个位数时会多一个空格，可以使用字符串替换：将空格替换成0）
+
+##### 6.md 创建目录
+
+例：md movie music // 在当前目录中创建名为movie和music的文件夹
+
+例：md d:\test\movie // 创建d:\test\movie目录
+
+##### 7.rd 删除目录
+
+例：rd movie // 删除当前目录下的movie空文件夹
+
+例：rd /s /q d:\test // 使用安静模式删除d:\test（除目录本身外，还将删除指定目录下的所有子目录和文件）
+
+##### 8.copy 文件 
+
+例：copy key.txt c:\doc // 将当前目录下的key.txt拷贝到c:\doc下（若doc中也存在一个key.txt文件，会询问是否覆盖）
+
+例：copy jobs c:\doc // 将当前目录下jobs文件夹中文件（不递归子目录）拷贝到c:\doc下（若doc中也存在相应的文件，会询问是否覆盖）
+
+例：copy key.txt c:\doc\key_bak.txt // 将当前目录下的key.txt拷贝到c:\doc下，并重命名为key_bak.txt（若doc中也存在一个key_bak.txt文件，会询问是否覆盖）
+
+例：copy /Y key.txt c:\doc // 将当前目录下的key.txt拷贝到c:\doc下（不询问，直接覆盖写）
+
+例：copy key.txt + // 复制文件到自己，实际上是修改了文件日期
+
+例：copy /Y key1.txt + key2.txt key.txt // 将当前目录下的key1.txt与key2.txt的内容合并写入key.txt中（不询问，直接覆盖写）
+
+例：copy /B art_2.7z.* art_2.7z   // 将当前目录下的art_2.7z.开头的所有文件（按照名称升序排序）依次合并生成art_2.7z
+
+例：copy /B art_2.7z.001+art_2.7z.002 art_2.7z   // 将当前目录下的art_2.7z.001、art_2.7z.002文件合并生成art_2.7z
